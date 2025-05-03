@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Grid, Paper, LinearProgress } from '@mui/material';
 import { motion } from 'framer-motion';
-import { SiKotlin, SiAndroid, SiDart, SiTensorflow, SiPython, SiFirebase, SiGooglecloud, SiJavascript } from 'react-icons/si';
+import { SiKotlin, SiAndroid, SiDart, SiTensorflow, SiPython, SiFirebase, SiGooglecloud, SiJavascript, SiStreamlit, SiServerless, SiPhp, SiDocker } from 'react-icons/si';
 import { IconType } from 'react-icons';
 
 interface SkillItem {
@@ -20,27 +20,32 @@ const skills: SkillCategory[] = [
     category: 'Mobile Development',
     items: [
       { name: 'Kotlin', level: 95, iconName: 'kotlin' },
-      { name: 'Android', level: 90, iconName: 'android' },
-      { name: 'Jetpack Compose', level: 85, iconName: 'android' },
-      { name: 'Flutter', level: 80, iconName: 'dart' },
+      { name: 'Java', level: 90, iconName: 'android' },
+      { name: 'XML', level: 95, iconName: 'android' },
+      { name: 'Dart', level: 40, iconName: 'dart' },
+      { name: 'Jetpack Compose', level: 45, iconName: 'android' },
     ],
   },
   {
-    category: 'AI & Machine Learning',
+    category: 'AI & Data Technologies',
     items: [
-      { name: 'TensorFlow', level: 85, iconName: 'tensorflow' },
-      { name: 'Python', level: 80, iconName: 'python' },
-      { name: 'ML Kit', level: 85, iconName: 'android' },
-      { name: 'Custom ML Models', level: 80, iconName: 'tensorflow' },
+      { name: 'Python', level: 90, iconName: 'python' },
+      { name: 'LLM & Gen AI', level: 85, iconName: 'tensorflow' },
+      { name: 'Data Analytics', level: 85, iconName: 'tensorflow' },
+      { name: 'Power BI', level: 80, iconName: 'tensorflow' },
+      { name: 'Streamlit', level: 85, iconName: 'streamlit' },
+      { name: 'ML Kit', level: 85, iconName: 'tensorflow' },
     ],
   },
   {
     category: 'Backend & Cloud',
     items: [
       { name: 'Firebase', level: 90, iconName: 'firebase' },
-      { name: 'Google Cloud', level: 80, iconName: 'googlecloud' },
-      { name: 'REST APIs', level: 85, iconName: 'javascript' },
-      { name: 'GraphQL', level: 75, iconName: 'javascript' },
+      { name: 'Google Cloud', level: 70, iconName: 'googlecloud' },
+      { name: 'REST APIs', level: 75, iconName: 'javascript' },
+      { name: 'Server Deployment', level: 75, iconName: 'serverless' },
+      { name: 'PHP', level: 75, iconName: 'php' },
+      { name: 'Docker', level: 70, iconName: 'docker' },
     ],
   },
 ];
@@ -132,6 +137,10 @@ const Skills = () => {
                           {skill.iconName === 'firebase' && React.createElement(SiFirebase as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
                           {skill.iconName === 'googlecloud' && React.createElement(SiGooglecloud as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
                           {skill.iconName === 'javascript' && React.createElement(SiJavascript as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
+                          {skill.iconName === 'streamlit' && React.createElement(SiStreamlit as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
+                          {skill.iconName === 'serverless' && React.createElement(SiServerless as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
+                          {skill.iconName === 'php' && React.createElement(SiPhp as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
+                          {skill.iconName === 'docker' && React.createElement(SiDocker as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
                           <Box sx={{ flex: 1 }}>
                             <Typography variant="body1" sx={{ color: 'white' }}>
                               {skill.name}

@@ -1,40 +1,35 @@
 import React from 'react';
 import { Box, Typography, Grid, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
-import { SiTensorflow, SiPytorch, SiOpenai, SiHuggingface } from 'react-icons/si';
-import { IconType } from 'react-icons';
+import { SiGithub, SiOpenai } from 'react-icons/si';
+import { FaCode } from 'react-icons/fa';
 
 interface AITool {
   name: string;
-  Icon: IconType;
   description: string;
-  proficiency: number;
+  icon: string;
 }
 
 const aiTools: AITool[] = [
   {
-    name: 'TensorFlow',
-    Icon: SiTensorflow,
-    description: 'Deep learning framework for building and training neural networks',
-    proficiency: 85
+    name: 'GitHub Copilot',
+    description: 'AI pair programmer that helps write better code faster by suggesting whole lines or entire functions.',
+    icon: 'github'
   },
   {
-    name: 'PyTorch',
-    Icon: SiPytorch,
-    description: 'Open source machine learning framework for deep learning',
-    proficiency: 80
+    name: 'ChatGPT',
+    description: 'Advanced language model for code generation, debugging, and technical documentation.',
+    icon: 'openai'
   },
   {
-    name: 'OpenAI API',
-    Icon: SiOpenai,
-    description: 'Integration with OpenAI models for natural language processing',
-    proficiency: 90
+    name: 'Cursor',
+    description: 'AI-powered code editor with intelligent code completion and real-time collaboration features.',
+    icon: 'code'
   },
   {
-    name: 'Hugging Face',
-    Icon: SiHuggingface,
-    description: 'Transformers library and model hub for NLP tasks',
-    proficiency: 85
+    name: 'VS Code AI',
+    description: 'AI-powered coding assistance within VS Code for enhanced development productivity.',
+    icon: 'code'
   }
 ];
 
@@ -76,7 +71,7 @@ const AITools = () => {
 
       <Grid container spacing={4} sx={{ mt: 4 }}>
         {aiTools.map((tool, index) => (
-          <Grid item xs={12} sm={6} key={index}>
+          <Grid item xs={12} md={6} key={index}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -96,49 +91,16 @@ const AITools = () => {
                   },
                 }}
               >
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                  <Box
-                    sx={{
-                      width: 50,
-                      height: 50,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      backgroundColor: 'rgba(100, 255, 218, 0.1)',
-                      borderRadius: 1,
-                      mr: 2,
-                    }}
-                  >
-                    {React.createElement(tool.Icon as React.ComponentType<{ size: number; color: string }>, { size: 24, color: "#64ffda" })}
-                  </Box>
-                  <Typography
-                    variant="h6"
-                    sx={{ color: 'white', fontWeight: 'bold' }}
-                  >
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
+                  {tool.icon === 'github' && React.createElement(SiGithub as unknown as React.ComponentType<{ size: number }>, { size: 32 })}
+                  {tool.icon === 'openai' && React.createElement(SiOpenai as unknown as React.ComponentType<{ size: number }>, { size: 32 })}
+                  {tool.icon === 'code' && React.createElement(FaCode as unknown as React.ComponentType<{ size: number }>, { size: 32 })}
+                  <Typography variant="h6" sx={{ color: 'white', fontWeight: 'bold' }}>
                     {tool.name}
                   </Typography>
                 </Box>
-                <Typography
-                  variant="body2"
-                  sx={{ color: 'secondary.main', mb: 2 }}
-                >
+                <Typography variant="body1" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
                   {tool.description}
-                </Typography>
-                <Box sx={{ width: '100%', height: 4, backgroundColor: 'rgba(100, 255, 218, 0.1)', borderRadius: 2 }}>
-                  <Box
-                    sx={{
-                      width: `${tool.proficiency}%`,
-                      height: '100%',
-                      backgroundColor: '#64ffda',
-                      borderRadius: 2,
-                    }}
-                  />
-                </Box>
-                <Typography
-                  variant="caption"
-                  sx={{ color: 'secondary.main', mt: 1, display: 'block' }}
-                >
-                  {tool.proficiency}% Proficiency
                 </Typography>
               </Paper>
             </motion.div>

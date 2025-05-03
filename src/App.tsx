@@ -1,27 +1,29 @@
 import React from 'react';
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import { ThemeProvider, CssBaseline, Box } from '@mui/material';
 import { theme } from './theme';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
 import Experience from './components/Experience';
 import AITools from './components/AITools';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <AITools />
-      <Projects />
-      <Contact />
+      <Box sx={{ backgroundColor: '#0a192f', minHeight: '100vh' }}>
+        <Navbar />
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <AITools />
+        <Projects />
+        <Contact />
+      </Box>
     </ThemeProvider>
   );
 }

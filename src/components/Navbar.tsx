@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Box, Button, useScrollTrigger, Slide } from '@mui/material';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const sections = [
   { name: 'Home', id: 'hero' },
@@ -80,7 +80,18 @@ const Navbar = () => {
               </Box>
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/yourusername"
+              href="mailto:muhammad.suffian.5959@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -3 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Box component="span">
+                {React.createElement(FaEnvelope as unknown as React.ComponentType<{ size: number; color: string }>, { size: 24, color: "#64ffda" })}
+              </Box>
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/muhammad-suffian-0b98a3248/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -3 }}

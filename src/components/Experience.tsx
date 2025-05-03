@@ -1,29 +1,47 @@
 import React from 'react';
-import { Box, Typography, Grid, Paper } from '@mui/material';
+import { Box, Typography, Grid, Paper, Avatar } from '@mui/material';
 import { motion } from 'framer-motion';
+import { SiAndroid, SiKotlin, SiFirebase, SiGooglecloud } from 'react-icons/si';
 
-const experiences = [
+interface ExperienceItem {
+  company: string;
+  position: string;
+  duration: string;
+  description: string[];
+  technologies: string[];
+  icon: string;
+}
+
+const experiences: ExperienceItem[] = [
   {
-    company: 'Company Name',
-    position: 'Software Engineer',
-    duration: '2022 - Present',
+    company: 'HURA Technologies',
+    position: 'Android Developer & AI Integration Specialist',
+    duration: '2024 October - Present',
     description: [
-      'Developed and maintained enterprise-level applications using modern technologies',
-      'Collaborated with cross-functional teams to deliver high-quality software solutions',
-      'Implemented best practices in software development and code review processes',
-      'Led the development of key features and improvements'
-    ]
+      'Developed and maintained Android applications using Kotlin and Java',
+      'Integrated AI and machine learning features into mobile applications',
+      'Implemented modern Android architecture components and best practices',
+      'Created AI-powered solutions for enhanced user experience',
+      'Collaborated with cross-functional teams to deliver innovative solutions',
+      'Optimized app performance and implemented AI-driven analytics'
+    ],
+    technologies: ['Kotlin', 'Java', 'AI Integration', 'ML Models', 'Firebase', 'XML', 'Jetpack Compose'],
+    icon: 'android'
   },
   {
-    company: 'Previous Company',
-    position: 'Junior Developer',
-    duration: '2020 - 2022',
+    company: 'HURA Technologies',
+    position: 'Android Developer',
+    duration: '2024 July - 2024 September',
     description: [
-      'Assisted in the development of web and mobile applications',
-      'Participated in agile development processes and team meetings',
-      'Contributed to code reviews and documentation',
-      'Learned and implemented new technologies and frameworks'
-    ]
+      'Developed native Android applications using Kotlin and Java',
+      'Implemented MVVM architecture and Jetpack components',
+      'Integrated RESTful APIs and third-party libraries',
+      'Optimized app performance and user experience',
+      'Collaborated with UI/UX designers to implement pixel-perfect designs',
+      'Conducted code reviews and maintained code quality standards'
+    ],
+    technologies: ['Kotlin', 'Java', 'XML', 'Jetpack Compose', 'REST APIs', 'Firebase'],
+    icon: 'android'
   }
 ];
 
@@ -64,7 +82,7 @@ const Experience = () => {
       </motion.div>
 
       <Grid container spacing={4} sx={{ mt: 4 }}>
-        {experiences.map((exp, index) => (
+        {experiences.map((experience, index) => (
           <Grid item xs={12} key={index}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -78,44 +96,61 @@ const Experience = () => {
                   p: 3,
                   backgroundColor: 'background.paper',
                   borderRadius: 2,
-                  transition: 'transform 0.3s',
-                  '&:hover': {
-                    transform: 'translateY(-5px)',
-                  },
+                  height: '100%',
                 }}
               >
-                <Typography
-                  variant="h5"
-                  sx={{ color: 'white', fontWeight: 'bold', mb: 1 }}
-                >
-                  {exp.position}
-                </Typography>
-                <Typography
-                  variant="h6"
-                  sx={{ color: '#64ffda', mb: 1 }}
-                >
-                  {exp.company}
-                </Typography>
-                <Typography
-                  variant="subtitle1"
-                  sx={{ color: 'secondary.main', mb: 2 }}
-                >
-                  {exp.duration}
-                </Typography>
-                <Box component="ul" sx={{ pl: 2 }}>
-                  {exp.description.map((item, i) => (
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
+                  {experience.company === 'HURA Technologies' ? (
+                    <Avatar src="/hura-logo.png" alt="HURA Technologies Logo" sx={{ width: 48, height: 48, bgcolor: 'transparent' }} />
+                  ) : (
+                    experience.icon === 'android' && React.createElement(SiAndroid as unknown as React.ComponentType<{ size: number }>, { size: 32 })
+                  )}
+                  <Box>
+                    <Typography variant="h6" sx={{ color: 'white', fontWeight: 'bold' }}>
+                      {experience.position}
+                    </Typography>
+                    <Typography variant="subtitle1" sx={{ color: '#64ffda' }}>
+                      {experience.company}
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
+                      {experience.duration}
+                    </Typography>
+                  </Box>
+                </Box>
+
+                <Box sx={{ mb: 3 }}>
+                  {experience.description.map((item, i) => (
                     <Typography
                       key={i}
-                      component="li"
+                      variant="body1"
                       sx={{
-                        color: 'secondary.main',
+                        color: 'white',
                         mb: 1,
-                        '&::marker': {
-                          color: '#64ffda',
-                        },
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: 1,
                       }}
                     >
+                      <span style={{ color: '#64ffda' }}>▹</span>
                       {item}
+                    </Typography>
+                  ))}
+                </Box>
+
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                  {experience.technologies.map((tech, i) => (
+                    <Typography
+                      key={i}
+                      variant="body2"
+                      sx={{
+                        color: '#64ffda',
+                        backgroundColor: 'rgba(100, 255, 218, 0.1)',
+                        px: 1.5,
+                        py: 0.5,
+                        borderRadius: 1,
+                      }}
+                    >
+                      {tech}
                     </Typography>
                   ))}
                 </Box>
