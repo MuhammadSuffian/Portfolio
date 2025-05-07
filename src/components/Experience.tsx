@@ -101,7 +101,7 @@ const Experience = () => {
               >
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
                   {experience.company === 'HURA Technologies' ? (
-                    <Avatar src="/hura-logo.png" alt="HURA Technologies Logo" sx={{ width: 48, height: 48, bgcolor: 'transparent' }} />
+                    <Avatar src={`${process.env.PUBLIC_URL}/hura-logo.png`} alt="HURA Technologies Logo" sx={{ width: 60, height: 60, bgcolor: 'transparent' }} />
                   ) : (
                     experience.icon === 'android' && React.createElement(SiAndroid as unknown as React.ComponentType<{ size: number }>, { size: 32 })
                   )}
