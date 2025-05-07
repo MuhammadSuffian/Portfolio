@@ -15,19 +15,19 @@ const projects = [
     image: '/images/project1.jpg',
   },
   {
-    title: 'Smart Home Automation',
+    title: 'AI-Powered Speech Sentiment Interpreter',
     description:
-      'A mobile application that controls smart home devices using AI for predictive automation and energy optimization.',
-    technologies: ['Android', 'Google Cloud', 'IoT', 'Machine Learning'],
-    github: 'https://github.com/yourusername/smart-home-app',
+      'AI-powered Streamlit app using NLP, Google Speech, and LLM to transcribe audio, analyze sentiment, and generate replies.',
+    technologies: ['Python', 'Streamlit', 'TextBlob', 'LLM', 'Google Speech', 'PyAudio '],
+    github: 'https://github.com/MuhammadSuffian/AI-Powered-Speech-Sentiment-Interpreter',
     demo: 'https://play.google.com/store/apps/details?id=com.yourcompany.smarthome',
     image: '/images/project2.jpg',
   },
   {
-    title: 'Health & Fitness AI Coach',
+    title: 'AI Chatbot with Local Multi LLM Models Support',
     description:
       'An Android app that uses AI to provide personalized fitness recommendations and track progress.',
-    technologies: ['Kotlin', 'ML Kit', 'Firebase', 'Health APIs'],
+    technologies: ['Kotlin', 'Ollama', 'Ngrok', 'Xml', 'Java', 'Retrofit','Gemini flash','Google TTS', 'Google STT'],
     github: 'https://github.com/yourusername/fitness-ai-coach',
     demo: 'https://play.google.com/store/apps/details?id=com.yourcompany.fitness',
     image: '/images/project3.jpg',
