@@ -6,10 +6,10 @@ import { IconType } from 'react-icons';
 
 const projects = [
   {
-    title: 'AI-Powered Android App',
+    title: 'IESA (INTELLIGENT ENERGY SCENARIO ANALYSIS)',
     description:
-      'An innovative Android application that uses machine learning to provide intelligent features and personalized experiences.',
-    technologies: ['Kotlin', 'TensorFlow Lite', 'ML Kit', 'Firebase'],
+      "IESA is an AI-based platform for analyzing, predicting, and optimizing national energy consumption and production.",
+    technologies: ['Python', 'Streamlit', 'WisRule Algorithm ', 'Scikit-learn',"Pandas & NumPy","Matplotlib & Plotly"],
     github: 'https://github.com/yourusername/ai-android-app',
     demo: 'https://play.google.com/store/apps/details?id=com.yourcompany.app',
     image: '/images/project1.jpg',
