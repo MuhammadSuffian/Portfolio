@@ -1,66 +1,69 @@
 import React from 'react';
-import { Box, Typography, Grid, Paper, LinearProgress } from '@mui/material';
+import { Box, Typography, Grid, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
-import { SiKotlin, SiAndroid, SiDart, SiTensorflow, SiPython, SiFirebase, SiGooglecloud, SiJavascript, SiStreamlit, SiServerless, SiPhp, SiDocker } from 'react-icons/si';
-import { IconType } from 'react-icons';
+import { FaReact, FaJava, FaShieldAlt, FaMobile, FaCode } from 'react-icons/fa';
+import { FaBrain } from 'react-icons/fa';
 
-interface SkillItem {
-  name: string;
-  level: number;
+interface Skill {
+  title: string;
+  description: string;
   iconName: string;
 }
 
-interface SkillCategory {
-  category: string;
-  items: SkillItem[];
-}
-
-const skills: SkillCategory[] = [
-  {
-    category: 'Mobile Development',
-    items: [
-      { name: 'Kotlin', level: 95, iconName: 'kotlin' },
-      { name: 'Java', level: 90, iconName: 'android' },
-      { name: 'XML', level: 95, iconName: 'android' },
-      { name: 'Dart', level: 40, iconName: 'dart' },
-      { name: 'Jetpack Compose', level: 45, iconName: 'android' },
-    ],
-  },
-  {
-    category: 'AI & Data Technologies',
-    items: [
-      { name: 'Python', level: 90, iconName: 'python' },
-      { name: 'LLM & Gen AI', level: 85, iconName: 'tensorflow' },
-      { name: 'Data Analytics', level: 85, iconName: 'tensorflow' },
-      { name: 'Power BI', level: 80, iconName: 'tensorflow' },
-      { name: 'Streamlit', level: 85, iconName: 'streamlit' },
-      { name: 'ML Kit', level: 85, iconName: 'tensorflow' },
-    ],
-  },
-  {
-    category: 'Backend & Cloud',
-    items: [
-      { name: 'Firebase', level: 90, iconName: 'firebase' },
-      { name: 'Google Cloud', level: 70, iconName: 'googlecloud' },
-      { name: 'REST APIs', level: 75, iconName: 'javascript' },
-      { name: 'Server Deployment', level: 75, iconName: 'serverless' },
-      { name: 'PHP', level: 75, iconName: 'php' },
-      { name: 'Docker', level: 70, iconName: 'docker' },
-    ],
-  },
-];
-
 const Skills = () => {
+  const skills: Skill[] = [
+    {
+      title: 'Frontend Development',
+      description: 'Building modern web applications with React, TypeScript, and Material-UI',
+      iconName: 'react',
+    },
+    {
+      title: 'Mobile Development',
+      description: 'Creating cross-platform mobile apps with React Native and Java for Android',
+      iconName: 'mobile',
+    },
+    {
+      title: 'Cybersecurity',
+      description: 'Implementing security measures, conducting vulnerability assessments, and developing secure applications',
+      iconName: 'shield',
+    },
+    {
+      title: 'Backend Development',
+      description: 'Developing robust backend systems with Java and modern frameworks',
+      iconName: 'java',
+    },
+    {
+      title: 'Software Engineering',
+      description: 'Following best practices in software development and architecture',
+      iconName: 'code',
+    },
+    {
+      title: 'Machine Learning Engineer',
+      description: 'Designing and implementing machine learning models and algorithms',
+      iconName: 'brain',
+    }
+  ];
+
+  const renderIcon = (iconName: string) => {
+    const iconProps = { size: 40, color: '#64ffda' };
+    const IconComponent = {
+      react: FaReact,
+      mobile: FaMobile,
+      shield: FaShieldAlt,
+      java: FaJava,
+      code: FaCode,
+      brain: FaBrain,
+    }[iconName] as React.ComponentType<{ size: number; color: string }>;
+
+    return IconComponent ? <IconComponent {...iconProps} /> : null;
+  };
+
   return (
     <Box
       id="skills"
       sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        px: { xs: 4, md: 8 },
         py: 8,
+        px: { xs: 4, md: 8 },
         maxWidth: '1200px',
         margin: '0 auto',
       }}
@@ -68,114 +71,69 @@ const Skills = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
         transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
       >
         <Typography
           variant="h4"
           sx={{
             color: 'white',
-            fontWeight: 'bold',
-            mb: 2,
-            display: 'flex',
-            alignItems: 'center',
-            gap: 2,
+            mb: 4,
+            '&::after': {
+              content: '""',
+              display: 'block',
+              width: '100px',
+              height: '2px',
+              backgroundColor: 'primary.main',
+              mt: 2,
+            },
           }}
         >
-          <span style={{ color: '#64ffda' }}>02.</span> Skills & Experience
+          Skills
         </Typography>
-      </motion.div>
 
-      <Grid container spacing={4} sx={{ mt: 4 }}>
-        {skills.map((category, categoryIndex) => (
-          <Grid item xs={12} md={4} key={categoryIndex}>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-            >
-              <Paper
-                elevation={0}
-                sx={{
-                  p: 3,
-                  backgroundColor: 'background.paper',
-                  borderRadius: 2,
-                  height: '100%',
-                }}
+        <Grid container spacing={4}>
+          {skills.map((skill, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
               >
-                <Typography
-                  variant="h6"
+                <Paper
+                  elevation={3}
                   sx={{
-                    color: 'white',
-                    fontWeight: 'bold',
-                    mb: 3,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 1,
+                    p: 3,
+                    height: '100%',
+                    backgroundColor: 'background.paper',
+                    transition: 'transform 0.3s',
+                    '&:hover': {
+                      transform: 'translateY(-5px)',
+                    },
                   }}
                 >
-                  {category.category}
-                </Typography>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                  {category.items.map((skill, skillIndex) => (
-                    <Box key={skillIndex}>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          mb: 1,
-                        }}
-                      >
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                          {skill.iconName === 'kotlin' && React.createElement(SiKotlin as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
-                          {skill.iconName === 'android' && React.createElement(SiAndroid as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
-                          {skill.iconName === 'dart' && React.createElement(SiDart as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
-                          {skill.iconName === 'tensorflow' && React.createElement(SiTensorflow as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
-                          {skill.iconName === 'python' && React.createElement(SiPython as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
-                          {skill.iconName === 'firebase' && React.createElement(SiFirebase as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
-                          {skill.iconName === 'googlecloud' && React.createElement(SiGooglecloud as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
-                          {skill.iconName === 'javascript' && React.createElement(SiJavascript as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
-                          {skill.iconName === 'streamlit' && React.createElement(SiStreamlit as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
-                          {skill.iconName === 'serverless' && React.createElement(SiServerless as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
-                          {skill.iconName === 'php' && React.createElement(SiPhp as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
-                          {skill.iconName === 'docker' && React.createElement(SiDocker as unknown as React.ComponentType<{ size: number }>, { size: 24 })}
-                          <Box sx={{ flex: 1 }}>
-                            <Typography variant="body1" sx={{ color: 'white' }}>
-                              {skill.name}
-                            </Typography>
-                            <LinearProgress
-                              variant="determinate"
-                              value={skill.level}
-                              sx={{
-                                height: 8,
-                                borderRadius: 4,
-                                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                                '& .MuiLinearProgress-bar': {
-                                  backgroundColor: '#64ffda',
-                                },
-                              }}
-                            />
-                          </Box>
-                        </Box>
-                        <Typography
-                          variant="body2"
-                          sx={{ color: 'secondary.main' }}
-                        >
-                          {skill.level}%
-                        </Typography>
-                      </Box>
-                    </Box>
-                  ))}
-                </Box>
-              </Paper>
-            </motion.div>
-          </Grid>
-        ))}
-      </Grid>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
+                    {renderIcon(skill.iconName)}
+                    <Typography
+                      variant="h6"
+                      sx={{ color: 'white', fontWeight: 'bold' }}
+                    >
+                      {skill.title}
+                    </Typography>
+                  </Box>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: 'secondary.main', lineHeight: 1.8 }}
+                  >
+                    {skill.description}
+                  </Typography>
+                </Paper>
+              </motion.div>
+            </Grid>
+          ))}
+        </Grid>
+      </motion.div>
     </Box>
   );
 };
 
-export default Skills; 
+export default Skills;

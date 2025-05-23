@@ -49,7 +49,7 @@ const Hero = () => {
             fontSize: { xs: '2.5rem', md: '4rem' },
           }}
         >
-          Muhammad Suffian Tafoor
+          Muhammad Waris Tafoor
         </Typography>
       </motion.div>
 
@@ -66,7 +66,7 @@ const Hero = () => {
             fontSize: { xs: '1.5rem', md: '2.5rem' },
           }}
         >
-          I'm a Software Engineer.
+          I'm a Software Engineer & Cybersecurity Expert.
         </Typography>
       </motion.div>
 
@@ -84,9 +84,10 @@ const Hero = () => {
             fontSize: { xs: '1rem', md: '1.2rem' },
           }}
         >
-          I'm a passionate software engineer specializing in building exceptional applications
-          with modern technologies. Currently focused on creating innovative solutions that
-          combine cutting-edge technology with user-centric design.
+          I'm a passionate software engineer with expertise in React, React Native, Java Android development,
+          and cybersecurity. Holding a Bachelor's in Software Engineering and a Master's in Cybersecurity,
+          I specialize in creating secure and innovative applications that combine cutting-edge technology
+          with robust security measures.
         </Typography>
       </motion.div>
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Typography, Grid, Paper, Avatar } from '@mui/material';
 import { motion } from 'framer-motion';
-import { SiAndroid, SiKotlin, SiFirebase, SiGooglecloud } from 'react-icons/si';
+import { SiAndroid } from 'react-icons/si';
+import { FaBrain, FaMobile } from 'react-icons/fa';
 
 interface ExperienceItem {
   company: string;
@@ -14,34 +15,34 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    company: 'HURA Technologies',
-    position: 'Android Developer & AI Integration Specialist',
-    duration: '2024 October - Present',
+    company: 'Eziline Software House',
+    position: 'AI Mobile Apps Developer',
+    duration: '2023 March - 2024 June',
     description: [
-      'Developed and maintained Android applications using Kotlin and Java',
-      'Integrated AI and machine learning features into mobile applications',
-      'Implemented modern Android architecture components and best practices',
-      'Created AI-powered solutions for enhanced user experience',
-      'Collaborated with cross-functional teams to deliver innovative solutions',
-      'Optimized app performance and implemented AI-driven analytics'
+      'Developed AI-powered mobile applications for various clients',
+      'Built cross-platform apps using React Native and integrated TensorFlow models',
+      'Collaborated with AI teams to deploy machine learning models on mobile devices',
+      'Optimized app performance and ensured seamless AI inference on-device',
+      'Worked closely with designers and backend engineers for end-to-end solutions'
     ],
-    technologies: ['Kotlin', 'Java', 'AI Integration', 'ML Models', 'Firebase', 'XML', 'Jetpack Compose'],
-    icon: 'android'
+    technologies: ['React Native', 'TensorFlow', 'AI', 'Mobile Apps', 'JavaScript', 'TypeScript'],
+    icon: 'mobile'
   },
   {
-    company: 'HURA Technologies',
-    position: 'Android Developer',
-    duration: '2024 July - 2024 September',
+    company: 'Freelance',
+    position: 'Machine Learning Engineer',
+    duration: '2022 January - 2023 February',
     description: [
-      'Developed native Android applications using Kotlin and Java',
-      'Implemented MVVM architecture and Jetpack components',
-      'Integrated RESTful APIs and third-party libraries',
-      'Optimized app performance and user experience',
-      'Collaborated with UI/UX designers to implement pixel-perfect designs',
-      'Conducted code reviews and maintained code quality standards'
+      'Designed and implemented machine learning models for diverse client projects',
+      'Worked on data preprocessing, feature engineering, and model evaluation',
+      'Deployed ML models into production environments and mobile apps',
+      'Collaborated remotely with international clients to deliver AI-driven solutions',
+      'Utilized Python, TensorFlow, and scikit-learn for end-to-end ML pipelines',
+      'Led a team to develop a predictive analytics tool that increased efficiency by 20%',
+      'Implemented a recommendation system that improved user engagement by 15%'
     ],
-    technologies: ['Kotlin', 'Java', 'XML', 'Jetpack Compose', 'REST APIs', 'Firebase'],
-    icon: 'android'
+    technologies: ['Python', 'TensorFlow', 'scikit-learn', 'Pandas', 'Machine Learning', 'AI'],
+    icon: 'brain'
   }
 ];
 
@@ -77,7 +78,7 @@ const Experience = () => {
             gap: 2,
           }}
         >
-          <span style={{ color: '#64ffda' }}>03.</span> Professional Experience
+          Professional Experience
         </Typography>
       </motion.div>
 
@@ -103,7 +104,10 @@ const Experience = () => {
                   {experience.company === 'HURA Technologies' ? (
                     <Avatar src={`${process.env.PUBLIC_URL}/hura-logo.png`} alt="HURA Technologies Logo" sx={{ width: 60, height: 60, bgcolor: 'transparent' }} />
                   ) : (
-                    experience.icon === 'android' && React.createElement(SiAndroid as unknown as React.ComponentType<{ size: number }>, { size: 32 })
+                    experience.icon === 'android' ? 
+                    React.createElement(SiAndroid as unknown as React.ComponentType<{ size: number }>, { size: 32 }) :
+                    experience.icon === 'brain' ? React.createElement(FaBrain as unknown as React.ComponentType<{ size: number }>, { size: 32 }) :
+                    experience.icon === 'mobile' && React.createElement(FaMobile as unknown as React.ComponentType<{ size: number }>, { size: 32 })
                   )}
                   <Box>
                     <Typography variant="h6" sx={{ color: 'white', fontWeight: 'bold' }}>
@@ -137,22 +141,26 @@ const Experience = () => {
                   ))}
                 </Box>
 
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                  {experience.technologies.map((tech, i) => (
-                    <Typography
-                      key={i}
-                      variant="body2"
-                      sx={{
-                        color: '#64ffda',
-                        backgroundColor: 'rgba(100, 255, 218, 0.1)',
-                        px: 1.5,
-                        py: 0.5,
-                        borderRadius: 1,
-                      }}
-                    >
-                      {tech}
-                    </Typography>
-                  ))}
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                    {experience.technologies.map((tech, i) => (
+                      <Typography
+                        key={i}
+                        variant="body2"
+                        sx={{
+                          color: '#64ffda',
+                          backgroundColor: 'rgba(100, 255, 218, 0.1)',
+                          px: 1.5,
+                          py: 0.5,
+                          borderRadius: 1,
+                        }}
+                      >
+                        {tech}
+                      </Typography>
+                    ))}
+                  </Box>
+                  
+
                 </Box>
               </Paper>
             </motion.div>
@@ -163,4 +171,4 @@ const Experience = () => {
   );
 };
 
-export default Experience; 
+export default Experience;

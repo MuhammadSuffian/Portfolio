@@ -1,42 +1,39 @@
 import React from 'react';
 import { Box, Typography, Grid, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
-import { SiGithub, SiOpenai } from 'react-icons/si';
-import { FaCode } from 'react-icons/fa';
 
-interface AITool {
-  name: string;
-  description: string;
-  icon: string;
+interface SkillCategory {
+  category: string;
+  skills: string[];
 }
 
-const aiTools: AITool[] = [
+const technicalSkills: SkillCategory[] = [
   {
-    name: 'GitHub Copilot',
-    description: 'AI pair programmer that helps write better code faster by suggesting whole lines or entire functions.',
-    icon: 'github'
+    category: 'Cybersecurity',
+    skills: ['NIST', 'ISO 27001', 'Metasploit', 'Nmap', 'Burp Suite']
   },
   {
-    name: 'ChatGPT',
-    description: 'Advanced language model for code generation, debugging, and technical documentation.',
-    icon: 'openai'
+    category: 'Programming',
+    skills: ['Python', 'Java', 'JavaScript', 'TypeScript', 'React Native']
   },
   {
-    name: 'Cursor',
-    description: 'AI-powered code editor with intelligent code completion and real-time collaboration features.',
-    icon: 'code'
+    category: 'Networking',
+    skills: ['TCP/IP', 'UDP', 'HTTP/HTTPS', 'DNS', 'DHCP', 'VPN', 'Network Security', 'Wireshark']
   },
   {
-    name: 'VS Code AI',
-    description: 'AI-powered coding assistance within VS Code for enhanced development productivity.',
-    icon: 'code'
+    category: 'Cloud',
+    skills: ['AWS', 'Azure', 'GCP']
+  },
+  {
+    category: 'AI/ML',
+    skills: ['TensorFlow', 'scikit-learn', 'Pandas', 'Machine Learning']
   }
 ];
 
-const AITools = () => {
+const TechnicalSkills = () => {
   return (
     <Box
-      id="ai-tools"
+      id="technical-skills"
       sx={{
         minHeight: '100vh',
         display: 'flex',
@@ -65,12 +62,12 @@ const AITools = () => {
             gap: 2,
           }}
         >
-          AI Tools Proficiency
+          Technical Skills
         </Typography>
       </motion.div>
 
       <Grid container spacing={4} sx={{ mt: 4 }}>
-        {aiTools.map((tool, index) => (
+        {technicalSkills.map((skillCategory, index) => (
           <Grid item xs={12} md={6} key={index}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -91,17 +88,26 @@ const AITools = () => {
                   },
                 }}
               >
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-                  {tool.icon === 'github' && React.createElement(SiGithub as unknown as React.ComponentType<{ size: number }>, { size: 32 })}
-                  {tool.icon === 'openai' && React.createElement(SiOpenai as unknown as React.ComponentType<{ size: number }>, { size: 32 })}
-                  {tool.icon === 'code' && React.createElement(FaCode as unknown as React.ComponentType<{ size: number }>, { size: 32 })}
-                  <Typography variant="h6" sx={{ color: 'white', fontWeight: 'bold' }}>
-                    {tool.name}
-                  </Typography>
-                </Box>
-                <Typography variant="body1" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
-                  {tool.description}
+                <Typography variant="h6" sx={{ color: '#64ffda', mb: 2 }}>
+                  {skillCategory.category}
                 </Typography>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                  {skillCategory.skills.map((skill, i) => (
+                    <Typography
+                      key={i}
+                      variant="body2"
+                      sx={{
+                        color: 'white',
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                        px: 1.5,
+                        py: 0.5,
+                        borderRadius: 1,
+                      }}
+                    >
+                      {skill}
+                    </Typography>
+                  ))}
+                </Box>
               </Paper>
             </motion.div>
           </Grid>
@@ -111,4 +117,4 @@ const AITools = () => {
   );
 };
 
-export default AITools;
+export default TechnicalSkills;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Box, Button, useScrollTrigger, Slide } from '@mui/material';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const sections = [
   { name: 'Home', id: 'hero' },
@@ -68,19 +68,9 @@ const Navbar = () => {
             ))}
           </Box>
           <Box sx={{ display: 'flex', gap: 2 }}>
+
             <motion.a
-              href="https://github.com/MuhammadSuffian"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -3 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Box component="span">
-                {React.createElement(FaGithub as unknown as React.ComponentType<{ size: number; color: string }>, { size: 24, color: "#64ffda" })}
-              </Box>
-            </motion.a>
-            <motion.a
-              href="mailto:muhammad.suffian.5959@gmail.com"
+              href="mailto:warismalik582@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -3 }}
@@ -91,7 +81,7 @@ const Navbar = () => {
               </Box>
             </motion.a>
             <motion.a
-              href="https://www.linkedin.com/in/muhammad-suffian-0b98a3248/"
+              href="https://linkedin.com/in/muhammad-waris-tafoor-08300822b"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -3 }}
@@ -108,4 +98,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;

@@ -4,9 +4,11 @@ import { theme } from './theme';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Certifications from './components/Certifications';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
-import AITools from './components/AITools';
+import TechnicalSkills from './components/TechnicalSkills';
+// import AITools from './components/AITools';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 
@@ -18,9 +20,11 @@ function App() {
         <Navbar />
         <Hero />
         <About />
+        <Certifications />
         <Skills />
         <Experience />
-        <AITools />
+        <TechnicalSkills />
+        {/* <AITools /> */}
         <Projects />
         <Contact />
       </Box>
